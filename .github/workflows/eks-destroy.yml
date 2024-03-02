@@ -1,4 +1,4 @@
-name: Aws EKS
+name: Aws EKS destroy-cluster
 on: 
      workflow_dispatch:
 permissions: 
@@ -26,11 +26,11 @@ jobs:
             - name: version check
               run: terraform version
 
-            - name: initialize
-              run: terraform init
-
-            - name: Plan
+            - name: Checking plan
               run: terraform plan
+
+            - name: Destroy the infra
+              run: terraform destroy -auto-approve
               
 
               
